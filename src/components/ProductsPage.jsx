@@ -14,9 +14,20 @@ export const ProductsPage = () => {
     initialState
   );
 
-  let productsFilteredByPrice =
+  const productsFilteredByPrice =
     price > 0 ? product.filter((prod) => prod.price <= price) : product;
-
+  const productsFilteredByDiscount =
+    discount > 0
+      ? productsFilteredByPrice.filter((prod) => prod.discount <= discount)
+      : productsFilteredByPrice;
+  const productsFilteredByRating =
+    rating > 0
+      ? productsFilteredByDiscount.filter((prod) => {
+          console.log(prod.rating);
+          console.log(rating);
+          return prod.rating <= rating;
+        })
+      : productsFilteredByDiscount;
   return (
     <>
       <div>
@@ -26,9 +37,21 @@ export const ProductsPage = () => {
             filterDispatch({ type: "PRICE", payload: e.target.value })
           }
         ></input>
+        <label>Discount:</label>
+        <input
+          onChange={(e) =>
+            filterDispatch({ type: "DISCOUNT", payload: e.target.value })
+          }
+        ></input>
+        <label>Rating:</label>
+        <input
+          onChange={(e) =>
+            filterDispatch({ type: "RATING", payload: e.target.value })
+          }
+        ></input>
       </div>
       <div className="container">
-        {productsFilteredByPrice.map((prod) => (
+        {productsFilteredByRating.map((prod) => (
           <div className="product" key={prod.id}>
             <p>{prod.productName}</p>
             <p>
