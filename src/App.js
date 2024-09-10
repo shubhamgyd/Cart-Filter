@@ -30,7 +30,7 @@ function App() {
         <button onClick={focusInput}>Focus Input</button>
       </div> */}
       {/* <PreviousValue /> */}
-      <Counter />
+      {/* <Counter />
       <fieldset>
         <legend>Enter the details</legend>
         <div>
@@ -71,7 +71,7 @@ function App() {
         </div>
       ) : (
         ""
-      )}
+      )} */}
       <ProductsPage />
     </>
   );

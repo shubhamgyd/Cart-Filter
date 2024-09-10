@@ -27,4 +27,18 @@ export const product = [
     discount: 10,
     rating: 5,
   },
+  {
+    id: 5,
+    productName: "Laptop-Bag",
+    price: 900,
+    discount: 5,
+    rating: 3.8,
+  },
+  {
+    id: 6,
+    productName: "KeyBoard",
+    price: 1500,
+    discount: 7,
+    rating: 4.4,
+  },
 ];
