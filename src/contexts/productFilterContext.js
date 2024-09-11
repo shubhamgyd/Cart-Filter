@@ -1,14 +1,14 @@
 import { useContext, createContext, useReducer } from "react";
 import { handleFilterReducer } from "../reducers/handleFilterReducer";
 
-const productFilterContext = createContext();
+const initialState = {
+  price: "",
+  discount: "",
+  rating: "",
+};
+const productFilterContext = createContext(initialState);
 
 const ProductFilterProvider = ({ children }) => {
-  const initialState = {
-    price: "",
-    discount: "",
-    rating: "",
-  };
   const [state, filterDispatch] = useReducer(handleFilterReducer, initialState);
 
   return (
